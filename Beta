@@ -1,5 +1,5 @@
 local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
-function qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct(data) m=string.sub(data, 0, 55) data=data:gsub(m,'')
+function CUohkINRuSCRcygUnikZ(data) m=string.sub(data, 0, 55) data=data:gsub(m,'')
 
 data = string.gsub(data, '[^'..b..'=]', '') return (data:gsub('.', function(x) if (x == '=') then return '' end local r,f='',(b:find(x)-1) for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end return r; end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x) if (#x ~= 8) then return '' end local c=0 for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end return string.char(c) end)) end
 
@@ -7,132 +7,141 @@ data = string.gsub(data, '[^'..b..'=]', '') return (data:gsub('.', function(x) i
  
 
 
--- Tạo ScreenGui
-local ScreenGui = Instance.new(qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('dOrZEoMbQveuVNLVanErLhmClSsLnNkmYtuRJvIYdBCDZHuLxNBVfCqU2NyZWVuR3Vp'))
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild(qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('rcfdwksBtRqNmvQeAThntmYanqLXnzBSavDjubMYWreKHYCIjBdhZTkUGxheWVyR3Vp'))
+-- Khởi tạo biến
+local flying = false
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+local UIS = game:GetService(CUohkINRuSCRcygUnikZ('gMLCzPnsqPzfLPCOMSUXcLRgHIjUThDcuJYHYugpRQuXSriAwSfAWJmVXNlcklucHV0U2VydmljZQ=='))
 
--- Tạo Frame chính
-local MainFrame = Instance.new(qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('UPtAjoKtCyHplulUqROtvhaQZbPpGnWPtBnRHwSPwlsJaeIOORKOstxRnJhbWU='))
-MainFrame.Name = qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('lWEbFTDwhuEyqkonWgwMNVCIwsQoOYKKOvDeItPFiTGZulbLWeVfkLzRmx5TWVudQ==')
-MainFrame.Size = UDim2.new(0, 200, 0, 100)
-MainFrame.Position = UDim2.new(0.5, -100, 0.1, 0)
-MainFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-MainFrame.BorderSizePixel = 2
-MainFrame.Active = true
-MainFrame.Draggable = true  -- Cho phép kéo thả
-MainFrame.Parent = ScreenGui
+-- Tạo GUI
+local screenGui = Instance.new(CUohkINRuSCRcygUnikZ('NxlbSlvhhdYirHuvbDqKnMpgYBICJuzduSSKImYjxAvMVDPFvrDkFTYU2NyZWVuR3Vp'))
+local mainFrame = Instance.new(CUohkINRuSCRcygUnikZ('HXWsfOIkTlIgrMjAGGZnRxWkamiISWUCoXoAOHLVGpkkZNJAsjFAFBfRnJhbWU='))
+local titleLabel = Instance.new(CUohkINRuSCRcygUnikZ('RPDZEgvnyABNiuFQYzrAwEvOKvLzliyRLhkfjEhoIgTbcmUYmrNUTwRVGV4dExhYmVs'))
+local toggleButton = Instance.new(CUohkINRuSCRcygUnikZ('CPWNgBXoDPRSuOzGuxJBXyXFmkTzCkDoWDuCFiKVuitpglinIzUZnnKVGV4dEJ1dHRvbg=='))
+local minimizeButton = Instance.new(CUohkINRuSCRcygUnikZ('wfFzZtlxQApXygmmYYwFHRiaPjXrFQHXZiTpWfsfwXOprlijugzQSRDVGV4dEJ1dHRvbg=='))
 
--- Tạo tiêu đề
-local Title = Instance.new(qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('wrTqBfAkomyHqZZStyaIIybqAfmmgZggPrgoDggrBMakqvGWIgDKcIVVGV4dExhYmVs'))
-Title.Text = qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('RlvrkvHSywmLVNfmevmFbmnIACBgeAKiEKgcPXcxwYPFlxHkfrgkkonTWVudSBCYXk=')
-Title.Size = UDim2.new(1, 0, 0, 30)
-Title.BackgroundTransparency = 1
-Title.TextColor3 = Color3.new(1, 1, 1)
-Title.TextSize = 18
-Title.Font = Enum.Font.SourceSansBold
-Title.Parent = MainFrame
+screenGui.Parent = player:WaitForChild(CUohkINRuSCRcygUnikZ('qtLRzOoitbUSFWxVEOUKjAtaYVzUtpjjJNpfFmDHkagPMtGYGTDhZYqUGxheWVyR3Vp'))
+screenGui.Name = CUohkINRuSCRcygUnikZ('vyEqvjuwYeLHjqueUoPCuhrFQXFjdDeYTflSgUEVWWDJKmnWkGFlYvoRmx5aW5nTWVudQ==')
 
--- Tạo nút Bật/Tắt
-local ToggleButton = Instance.new(qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('MMNBJwMMZTVBRghheQpIwSWEkubHBJXGMHVSxFwZWZyjKGnGOUavDxiVGV4dEJ1dHRvbg=='))
-ToggleButton.Name = qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('KDzDCiJqvnTdDfYsnfpQUfvYCNMDJOTUZtnQOiUUtqlWVMMOSjUjzUCVG9nZ2xlQnV0dG9u')
-ToggleButton.Text = qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('BYNSdiaPLPISdMfDuDPomRhNshkxOBFwfacUsctxFFNeTEDuiHwtRYZQuG6rXQgQmF5')
-ToggleButton.Size = UDim2.new(0.8, 0, 0, 40)
-ToggleButton.Position = UDim2.new(0.1, 0, 0.5, -20)
-ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 200, 0)
-ToggleButton.TextColor3 = Color3.new(1, 1, 1)
-ToggleButton.TextSize = 16
-ToggleButton.Font = Enum.Font.SourceSansBold
-ToggleButton.Parent = MainFrame
+mainFrame.Parent = screenGui
+mainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+mainFrame.BackgroundTransparency = 0.5
+mainFrame.BorderSizePixel = 0
+mainFrame.Size = UDim2.new(0, 200, 0, 100)
+mainFrame.Position = UDim2.new(0, 100, 0, 100)
+mainFrame.Active = true
+mainFrame.Draggable = true
 
--- Biến để kiểm tra trạng thái bay
-local isFlying = false
-local flySpeed = 50
+titleLabel.Parent = mainFrame
+titleLabel.Text = CUohkINRuSCRcygUnikZ('kLtJkpseMvpQTyBUedqbwgskAYJXAkypaiYRwQQkKPpHMqAQqgytqFdTWVudSBCYXk=')
+titleLabel.Size = UDim2.new(1, 0, 0.3, 0)
+titleLabel.BackgroundTransparency = 1
+titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+titleLabel.Font = Enum.Font.SourceSans
+titleLabel.TextSize = 24
 
--- Hàm để bật/tắt bay
-local function toggleFly()
-    isFlying = not isFlying
-    local player = game.Players.LocalPlayer
-    local character = player.Character or player.CharacterAdded:Wait()
-    local humanoid = character:WaitForChild(qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('arwObIsrTvfHDynBJCGVxFfAhTBwztzJNSORiHJMfDdoXSAZpchZdftSHVtYW5vaWQ='))
-    local hrp = character:WaitForChild(qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('YahMNQZlUSrRdUogjKTbRFyFxfwGuxaBwOXFTALZKvzTaZlUpkbTmRGSHVtYW5vaWRSb290UGFydA=='))
-    
-    if isFlying then
-        ToggleButton.Text = qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('xIkkvuIcnzrwNVEGWSPslJbGNhDZCAkbaIEHTcGlmwJaSFyeZErCowJVOG6r3QgQmF5')
-        ToggleButton.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
-        
-        -- Tạo BodyVelocity để bay
-        local bv = Instance.new(qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('kCyDipEAwumpXowXTevaKZEUvpIENanziGbVVsrWPabApVtLKRfVRbfQm9keVZlbG9jaXR5'))
-        bv.Velocity = Vector3.new(0, 0, 0)
-        bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
-        bv.Parent = hrp
-        
-        -- Tạo BodyGyro để giữ hướng
-        local bg = Instance.new(qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('yOjUdssdkproSRYXLZNaNYWptSgXzIciPcGluqlCgKDwpJcatDsUTgCQm9keUd5cm8='))
-        bg.P = 9e4
-        bg.MaxTorque = Vector3.new(9e9, 9e9, 9e9)
-        bg.CFrame = hrp.CFrame
-        bg.Parent = hrp
-        
-        -- Vòng lặp để điều khiển bay
-        spawn(function()
-            while isFlying and character.Parent
-            while isFlying and character.Parent do
-                local newBV = Vector3.new(0, 0, 0)
-                if game:GetService(qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('ilZQJwHwcUfylhjtcNptlxjRnVBdxVfLTUSSjBsBHorUoQhoXCPUspFVXNlcklucHV0U2VydmljZQ==')):IsKeyDown(Enum.KeyCode.W) then
-                    newBV = newBV + (workspace.CurrentCamera.CoordinateFrame.LookVector * flySpeed)
-                end
-                if game:GetService(qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('IkOhdLNJuikkxQXQpyrRUFMzeuQPMcKBQxycDrLrqHyuHjsVeEgMIICVXNlcklucHV0U2VydmljZQ==')):IsKeyDown(Enum.KeyCode.S) then
-                    newBV = newBV - (workspace.CurrentCamera.CoordinateFrame.LookVector * flySpeed)
-                end
-                if game:GetService(qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('gKXApdpSebEseTfRmFsyeqmYXirCrRFlhiAyIXQJiSLglNXRPrUnpzBVXNlcklucHV0U2VydmljZQ==')):IsKeyDown(Enum.KeyCode.A) then
-                    newBV = newBV - (workspace.CurrentCamera.CoordinateFrame.RightVector * flySpeed)
-                end
-                if game:GetService(qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('NoLnstDvfzrgiAPMUniiTENgFCjVRDMheBZcjpPprHwjTBlhUnXWGbcVXNlcklucHV0U2VydmljZQ==')):IsKeyDown(Enum.KeyCode.D) then
-                    newBV = newBV + (workspace.CurrentCamera.CoordinateFrame.RightVector * flySpeed)
-                end
-                bv.Velocity = newBV
-                bg.CFrame = workspace.CurrentCamera.CoordinateFrame
-                wait()
-            end
-        end)
-    else
-        ToggleButton.Text = qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('fHhIBkyUXhNckdsrPUreaisdJVyJAVhNvQWRYDevpUCWSOMZmgThHeyQuG6rXQgQmF5')
-        ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 200, 0)
-        
-        -- Xóa BodyVelocity và BodyGyro
-        for _, v in pairs(hrp:GetChildren()) do
-            if v:IsA(qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('eiuxPYhdQYTVnsRavPNwczOcLEIswSfBvaZquBWcXSULpuwmidoIvgtQm9keVZlbG9jaXR5')) or v:IsA(qiQDjbCXRIEwDoPflXsSrMfyCTHeeKIxYSlYzgahct('zfKxWHEusTTIBGTiJWpXFovLvGgLaqpUBxoAJTeUOnrBdMtafVXVYTSQm9keUd5cm8=')) then
-                v:Destroy()
-            end
-        end
-    end
-end
+toggleButton.Parent = mainFrame
+toggleButton.Text = CUohkINRuSCRcygUnikZ('erhugUKSMwhBEfMBOifimfYdWHVnfAfRmZNKTBIoFDcuVHDoqpOIiThQuG6rXQvVOG6r3QgQmF5')
+toggleButton.Size = UDim2.new(1, 0, 0.3, 0)
+toggleButton.Position = UDim2.new(0, 0, 0.3, 0)
+toggleButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+toggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+toggleButton.Font = Enum.Font.SourceSans
+toggleButton.TextSize = 24
 
--- Kết nối nút với hàm toggleFly
-ToggleButton.MouseButton1Click:Connect(toggleFly)
+minimizeButton.Parent = mainFrame
+minimizeButton.Text = CUohkINRuSCRcygUnikZ('uycqkhefBgbJWcGaxzNCByUlyHESqXOfiglKVkufbWYmhMJFVDxBAjoLQ==')
+minimizeButton.Size = UDim2.new(0.2, 0, 0.3, 0)
+minimizeButton.Position = UDim2.new(0.8, 0, 0, 0)
+minimizeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+minimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+minimizeButton.Font = Enum.Font.SourceSans
+minimizeButton.TextSize = 24
 
--- Hàm để chuyển màu tiêu đề
+-- Màu sắc thay đổi
+local colors = {
+    Color3.fromRGB(255, 0, 0),
+    Color3.fromRGB(255, 165, 0),
+    Color3.fromRGB(255, 255, 0),
+    Color3.fromRGB(0, 255, 0),
+    Color3.fromRGB(0, 0, 255),
+    Color3.fromRGB(75, 0, 130),
+    Color3.fromRGB(238, 130, 238),
+    Color3.fromRGB(0, 255, 255),
+    Color3.fromRGB(255, 20, 147),
+    Color3.fromRGB(255, 255, 255)
+}
+local currentColorIndex = 1
+
+-- Hàm thay đổi màu sắc
 local function changeColor()
-    local colors = {
-        Color3.fromRGB(255, 0, 0),    -- Đỏ
-        Color3.fromRGB(255, 127, 0),  -- Cam
-        Color3.fromRGB(255, 255, 0),  -- Vàng
-        Color3.fromRGB(0, 255, 0),    -- Lục
-        Color3.fromRGB(0, 0, 255),    -- Lam
-        Color3.fromRGB(75, 0, 130),   -- Chàm
-        Color3.fromRGB(143, 0, 255),  -- Tím
-        Color3.fromRGB(255, 192, 203),-- Hồng
-        Color3.fromRGB(255, 255, 255),-- Trắng
-        Color3.fromRGB(0, 0, 0)       -- Đen
-    }
-    
-    local index = 1
     while true do
-        Title.TextColor3 = colors[index]
-        index = (index % #colors) + 1
+        titleLabel.TextColor3 = colors[currentColorIndex]
+        currentColorIndex = currentColorIndex % #colors + 1
         wait(1)
     end
 end
 
--- Bắt đầu chuyển màu
-spawn(changeColor)    
+-- Hàm bật/tắt bay
+local function toggleFlying()
+    flying = not flying
+    if flying then
+        player.Character.Humanoid.PlatformStand = true
+        local bodyGyro = Instance.new(CUohkINRuSCRcygUnikZ('UjQoJIGWiLsNtBFkiPXdTqhhqwhRWrRvyaYXBeLBByMbLaORbhFMbAiQm9keUd5cm8='), player.Character.HumanoidRootPart)
+        local bodyVelocity = Instance.new(CUohkINRuSCRcygUnikZ('EOdIaVxNVghsgFZggZrmZCHVFkUvSlMTKvVxZTeazenQpFHzkbtXDdUQm9keVZlbG9jaXR5'), player.Character.HumanoidRootPart)
+        bodyGyro.P = 9e4
+        bodyGyro.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+        bodyGyro.cframe = player.Character.HumanoidRootPart.CFrame
+        bodyVelocity.velocity = Vector3.new(0, 0, 0)
+        bodyVelocity.maxForce = Vector3.new(9e9, 9e9, 9e9)
+
+        -- Điều khiển bay
+        UIS.InputBegan:Connect(function(input)
+            if flying then
+                if input.KeyCode == Enum.KeyCode.W then
+                    bodyVelocity.velocity = player.Character.HumanoidRootPart.CFrame.lookVector * 50
+                elseif input.KeyCode == Enum.KeyCode.S then
+                    bodyVelocity.velocity = -player.Character.HumanoidRootPart.CFrame.lookVector * 50
+                elseif input.KeyCode == Enum.KeyCode.A then
+                    bodyVelocity.velocity = -player.Character.HumanoidRootPart.CFrame.rightVector * 50
+                elseif input.KeyCode == Enum.KeyCode.D then
+                    bodyVelocity.velocity = player.Character.HumanoidRootPart.CFrame.rightVector * 50
+                elseif input.KeyCode == Enum.KeyCode.Space then
+                    bodyVelocity.velocity = Vector3.new(0, 50, 0)
+                elseif input.KeyCode == Enum.KeyCode.LeftControl then
+                    bodyVelocity.velocity = Vector3.new(0, -50, 0)
+                end
+            end
+        end)
+
+        UIS.InputEnded:Connect(function(input)
+            if flying then
+                if input.KeyCode == Enum.KeyCode.W or input.KeyCode == Enum.KeyCode.S or input.KeyCode == Enum.KeyCode.A or input.KeyCode == Enum.KeyCode.D or input.KeyCode == Enum.KeyCode.Space or input.KeyCode == Enum.KeyCode.LeftControl then
+                    bodyVelocity.velocity = Vector3.new(0, 0, 0)
+                end
+            end
+        end)
+
+    else
+        player.Character.Humanoid.PlatformStand = false
+        if player.Character.HumanoidRootPart:FindFirstChild(CUohkINRuSCRcygUnikZ('zcuIFPSWHUAzPBgfHaghfILEXNIRQijucvCXTIOKtzqbeEhnZQcagEjQm9keUd5cm8=')) then
+            player.Character.HumanoidRootPart.BodyGyro:Destroy()
+        end
+        if player.Character.HumanoidRootPart:FindFirstChild(CUohkINRuSCRcygUnikZ('UWaBEcxoEPbJeBPSXkpULSGtjQHfxFNEdGDykadOkMqQtmhWZMaFDgiQm9keVZlbG9jaXR5')) then
+            player.Character.HumanoidRootPart.BodyVelocity:Destroy()
+        end
+    end
+end
+
+-- Hàm thu nhỏ menu
+local function minimizeMenu()
+    mainFrame.Visible = not mainFrame.Visible
+end
+
+-- Kết nối sự kiện
+toggleButton.MouseButton1Click:Connect(toggleFlying)
+minimizeButton.MouseButton1Click:Connect(minimizeMenu)
+
+-- Bắt đầu thay đổi màu sắc
+spawn(changeColor)
+    
